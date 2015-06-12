@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.BrandsMapper">
+	<resultMap type="domain.Brands" id="rem">
+		<id  property="brandId"        column="brand_id" javaType="Integer" jdbcType="INTEGER"/> 
+		<result  property="cateId"        column="cate_id" javaType="Integer" jdbcType="INTEGER"/>  
+		<result  property="descriptionZh"        column="cate_id" javaType="String" jdbcType="VARCHAR"/>  
+		<result  property="descriptionEn"        column="description_en" javaType="String" jdbcType="VARCHAR"/>  
+		<result  property="descriptionKo"        column="description_ko" javaType="String" jdbcType="VARCHAR"/>  
+		<result  property="logoUrl"        column="logo_url" javaType="String" jdbcType="VARCHAR"/>  
+		<result  property="homePage"        column="home_page" javaType="String" jdbcType="VARCHAR"/>  
+		<result  property="createDate"        column="create_date" javaType="Date" jdbcType="DATE"/>  
+		<result  property="brandNmZh"        column="brand_nm_zh" javaType="String" jdbcType="VARCHAR"/>  
+		<result  property="brandNmEn"        column="brand_nm_en" javaType="String" jdbcType="VARCHAR"/>  
+		<result  property="brandNmKo"        column="brand_nm_ko" javaType="String" jdbcType="VARCHAR"/>  
+	</resultMap>
+	<select id="getBrands" resultMap="rem" parameterType="java.lang.Integer">
+		select * from brands where brand_id=${value}
+	</select>
+
+</mapper>

@@ -1,4 +1,4 @@
-name := """play-2.3.6-mybatis-sample"""
+name := """play-guice-mybatis"""
 
 version := "1.0-SNAPSHOT"
 
@@ -11,10 +11,18 @@ libraryDependencies ++= Seq(
   javaEbean,
   cache,
   javaWs,
-  "org.mybatis" % "mybatis" % "3.1.1",
-  "org.mybatis" % "mybatis-guice" % "3.3",
+  "org.mybatis" % "mybatis" % "3.3.0" withSources() withJavadoc(),
+  "org.mybatis" % "mybatis-guice" % "3.6" withSources() withJavadoc(),
   javaCore, javaJdbc
 )
+
+libraryDependencies += "org.postgresql" % "postgresql" % "9.3-1103-jdbc41" withSources() withJavadoc()
+
+libraryDependencies += "com.google.inject" % "guice" % "4.0" withSources() withJavadoc()
+
+libraryDependencies += "com.google.inject.extensions" % "guice-multibindings" % "4.0" withSources() withJavadoc()
+
+
 
 // "Add mapper xml files to classpath" -- blank line necessary for SBT
 unmanagedResourceDirectories in Compile <+= baseDirectory( _ / "app" )

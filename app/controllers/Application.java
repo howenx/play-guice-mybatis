@@ -2,19 +2,21 @@ package controllers;
 
 import javax.inject.Inject;
 
-import org.apache.ibatis.mapping.Environment;
-
 import play.mvc.Controller;
 import play.mvc.Result;
-import views.html.index;
+import service.ItemService;
 
 public class Application extends Controller {
 
+//  @Inject
+//  private BrandsDao brandsDao;
+  
   @Inject
-  private Environment myBatisEnv;
-
+  private ItemService itemService;
+  
   public Result index() {
-    return ok(index.render("Your app is running with ds " + myBatisEnv.getDataSource()));
+    
+    return ok(views.html.index.render("Your app is running with ds: " + " 品牌信息:"+itemService.getBrands(11022).getBrandNmEn()));
   }
 
 }
